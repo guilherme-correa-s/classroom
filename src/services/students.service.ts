@@ -20,4 +20,12 @@ export class StudentsService {
   findUniqueByAuthId(authUserId: string) {
     return this.prisma.student.findUnique({ where: { authUserId } });
   }
+
+  create(authUserId: string) {
+    return this.prisma.student.create({
+      data: {
+        authUserId,
+      },
+    });
+  }
 }
